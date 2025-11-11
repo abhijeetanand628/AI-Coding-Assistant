@@ -46,7 +46,7 @@ export default function Home() {
               <div className="flex border-b border-gray-700/50 bg-gray-900/50 p-2">
                 {tabs.map((tab) => (
                   <button key={tab.id} 
-                    className={`flex ietms-center px-6 py-3 rounded-lg font-semibld transition-all ${
+                    className={`flex ietms-center px-6 py-3 rounded-lg font-semibld transition-all cursor-pointer ${
                       activeTab === tab.id
                       ? `bg-gradient-to-r ${tab.gradient} text-white shadow-lg`
                       : "text-gray-400 hover:text-white hover:bg-gray-700/50"

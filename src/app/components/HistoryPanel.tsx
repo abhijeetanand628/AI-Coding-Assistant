@@ -1,6 +1,5 @@
 import React from 'react'
 import { HistoryItem } from '../types';
-import { connect } from 'http2';
 
 interface HistoryItemProps {
   history: HistoryItem[];
@@ -18,7 +17,7 @@ const HistoryPanel = ({history}: HistoryItemProps) => {
       case "explain":
           return {
             color: "from-purple-500 to-pink-500",
-            icon: "🔎",
+            icon: "🔍",
             bg: "bg-purple-500/10",
           };
 

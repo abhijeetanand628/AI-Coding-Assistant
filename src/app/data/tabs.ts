@@ -4,7 +4,7 @@ const tabs: Tab[] = [
     {
         id: "explain",
         label: "Explain code",
-        icon: "🔎",
+        icon: "🔍",
         gradient: "from-purple-500 to-pink-500"
     },
     {
