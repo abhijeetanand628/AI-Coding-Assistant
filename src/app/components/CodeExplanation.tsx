@@ -3,14 +3,14 @@ import { HistoryItem } from '../types';
 import { sampleCode } from '../data/examples';
 
 interface CodeExplanationProps {
-  addHistory: (
+  addToHistory: (
     type: HistoryItem["type"], 
     input: string, 
     output: string
   ) => void;
 }
 
-const CodeExplanation = ({addHistory} : CodeExplanationProps) => {
+const CodeExplanation = ({addToHistory} : CodeExplanationProps) => {
 
   const [code, setCode] = useState<string>("");
   const [explanation, setExplanation] = useState<string>("");
@@ -34,7 +34,7 @@ const CodeExplanation = ({addHistory} : CodeExplanationProps) => {
         console.log(response.ok);
         const explanationText = data.data?.explanation || "No explanation generated";
         setExplanation(explanationText)
-        addHistory("explain", code, explanationText);
+        addToHistory("explain", code, explanationText);
       } else {
         setExplanation(`Error: ${data.error}`);
       }
