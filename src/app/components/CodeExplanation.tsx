@@ -29,7 +29,9 @@ const CodeExplanation = ({addHistory} : CodeExplanationProps) => {
         body: JSON.stringify({ code }),
       });
       const data = await response.json();
+      console.log(data);
       if (response.ok) {
+        console.log(response.ok);
         const explanationText = data.data?.explanation || "No explanation generated";
         setExplanation(explanationText)
         addHistory("explain", code, explanationText);
@@ -37,6 +39,7 @@ const CodeExplanation = ({addHistory} : CodeExplanationProps) => {
         setExplanation(`Error: ${data.error}`);
       }
     } catch (error) {
+      console.log(error)
       setExplanation("Failed to fetch explanation. Please try again");
     } finally {
       setLoading(false);
@@ -89,6 +92,22 @@ const CodeExplanation = ({addHistory} : CodeExplanationProps) => {
             </>
           )}</button>
       </div>
+      {explanation && (
+        <div className='mt-6 animate-fade-in'>
+          <div className='flex items-center space-x-2 mb-4'>
+            <div className='w-2 h-6 bg-gradient-to-b from-purple-500 to-pink-500 rounded-lg'></div>
+              <h3 className='text-xl font-semibold text-white'>Explanation</h3>
+          </div>
+
+            <div className='bg-gray-900/60 backdrop-blur-sm border border-gray-700 rounded-lg p-5'>
+              <div className='prose prose-invert max-w-none'>
+                <pre className='text-gray-100 whitespace-pre-wrap leading-relaxed text-sm'>
+                  {explanation}
+                </pre>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
